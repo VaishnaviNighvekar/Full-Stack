@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+
+    <body>
+       
+        <h1>Go to browsers console to see js console output</h1>
+
+        <!-- Whatever we will type in script tag, tose content will be executed as JS in out browser -->
+    <script>
+       /*
+
+
+       age = 19;
+       console.log(age) -> used to print in console of browser
+       window.alert("this is alert message") -> this is used to create a pop up box containing same message
+
+       */
+
+
+        /*
+
+        following is the notation for creating an object in JS and this notaion is call JSON notation
+
+       const ganesh={
+        name: "Ganesh Pandit",
+        age:21,
+        address:"Aurangabad"
+       }
+
+
+       inside the curly braces are the properties of the object that we have created, and we can access them
+       using object_name.property_name
+
+       console.log(ganesh.name)
+
+       */
+
+
+        /*can create another object inside other objects in follwoing way
+
+        const ganesh={
+        name: "Ganesh Pandit",
+        age:21,
+        address:"Aurangabad",
+        car:{
+            name:"car name",
+            color:"blue",
+            model: "new"
+        }
+       }
+
+       console.log(ganesh.car.model)
+
+       */
+      
+
+    /*
+    1) console.log("hello world "+age) -> this will give error (reference error: age is not defined)
+
+    2) let age
+       console.log("hellow world "+age) -> this will print (hello world undefined)
+    
+    */
+
+
+    /*
+        function is a keyword, greet is name of fucntion, now time is parameter to the function and hence
+        it is automatically declared in the function, hence when we just use greet() it will not give reference
+        error, instead it will print -> good evening undefiened   
+
+
+       function greet(time){
+        console.log("Good evening " + time)
+       }
+
+       greet()
+       greet("9PM")
+
+    */
+
+    function hell(){
+        var hello=2
+    }
+
+    console.log(hello)
+    </script>
+
+
+    </body>
+</html>

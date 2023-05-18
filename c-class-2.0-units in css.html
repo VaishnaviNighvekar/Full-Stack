@@ -1,0 +1,61 @@
+<!-- box model -->
+<html>
+    <head>
+        <style>
+            /* universal selector - applied to every element 
+            and has least priority*/
+            *{
+                margin: 10;
+                padding: 10;
+                box-sizing: border-box;
+                background-color: black;
+            
+            }
+            .parent{
+                height: 50px;
+                width: 60%;
+                padding: 10px;
+                background-color: aqua;
+            }
+            .child{
+                height: 30px;
+                width: 60%;
+                background-color: rgb(15, 79, 79);
+
+            }
+            div{
+                height: 300px;
+                width: 300px;
+                background-color: brown;
+                border: 10px solid blueviolet;
+                /* left and top space outside box */
+                /* margin-left: 60px;
+                margin-top: 50px; */
+                /* shift the content in box */
+                padding: 30px;
+                /* will not change box size */
+                box-sizing: border-box; 
+
+                /* vw=%width vh=%height 
+                remember width % alloud but not for height*/
+        
+
+        
+
+            }
+        </style>
+    </head>
+    <body style = "background-color:rgb(114, 168, 28);">
+        
+        <div>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto aliquid ducimus eos quas at nemo, cupiditate nobis molestiae, cumque quod harum repellat aperiam adipisci pariatur illum dignissimos repellendus, nostrum voluptate.
+        </div>
+        <div>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto aliquid ducimus eos quas at nemo, cupiditate nobis molestiae, cumque quod harum repellat aperiam adipisci pariatur illum dignissimos repellendus, nostrum voluptate.
+        </div>
+
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </body>
+</html>

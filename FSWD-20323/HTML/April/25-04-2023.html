@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--useing some styles from codepen.io-->
+
+<head>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Consolas;
+            font-weight: bold;
+        }
+        
+        body,div.headings{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        /* div.recipecard{
+            display: flex;
+            border: black;
+            border-radius: 5px;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 20px 20px 20px rgba(0,0,0,.1)
+        } */
+        
+        input{
+            margin-top: 10px;
+            border-color: black;
+            border-radius: 5px;
+            width: 45%;
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        div.searchbar{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        
+        button{
+            margin-top: 10px;
+            margin-left: 10px;
+            border-color: black;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        div{
+            width: 50vw;
+        }
+        .loader {
+            margin: 0 0 2em;
+            height: 100px;
+            width: 20%;
+            text-align: center;
+            padding: 1em;
+            margin: 0 auto 1em;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        svg path,
+        svg rect {
+            fill: blueviolet;
+        }
+
+        div.loader-container {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.9;
+            align-items: center;
+            color: #fff;
+            display: none;
+            z-index: 100;  /* z-index=100 is used to signify that every other element is in background of current element*/
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="loader-container">
+        <h2>Loading </h2>
+            <div class="loader loader--style8" title="7">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="30px"
+                    viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <rect x="0" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0s" dur="0.6s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0s" dur="0.6s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0s" dur="0.6s"
+                            repeatCount="indefinite" />
+                    </rect>
+                    <rect x="8" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.15s"
+                            dur="0.6s" repeatCount="indefinite" />
+                        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.15s" dur="0.6s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.15s" dur="0.6s"
+                            repeatCount="indefinite" />
+                    </rect>
+                    <rect x="16" y="10" width="4" height="10" fill="#333" opacity="0.2">
+                        <animate attributeName="opacity" attributeType="XML" values="0.2; 1; .2" begin="0.3s" dur="0.6s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="height" attributeType="XML" values="10; 20; 10" begin="0.3s" dur="0.6s"
+                            repeatCount="indefinite" />
+                        <animate attributeName="y" attributeType="XML" values="10; 5; 10" begin="0.3s" dur="0.6s"
+                            repeatCount="indefinite" />
+                    </rect>
+                </svg>
+            </div>
+    </div>
+    <div class="headings">
+        <h1>Welcome to Recipe App</h1>
+        <h3>Search for your favorites Recipes</h3>
+    </div><br>
+    <div class="searchbar">
+        <input id="input" type="text" >
+        <button id="searchbut">Search</button>
+    </div><br>
+    
+
+    <div class=recipe-container>
+        <h3 id="text2"></h3>
+    </div>
+
+
+    <script>
+        const input=document.getElementById('input')
+        const searchbut=document.getElementById('searchbut')
+        const recipecon=document.querySelector('.recipe-container')
+        const body=document.querySelector('body')
+        const load=document.querySelector('.loader-container')
+        const text2=document.getElementById('text2')
+        text2.remove()
+        const apid = '68104b20'
+        const appkey = 'c4166a69006b47ba1e55532ce8009519'
+
+        const searchForRecipe = async () => {
+
+            try {
+                recipecon.innerHTML=''
+                load.style="display: flex;"
+                const searchString = input.value;
+                input.value=''
+                text2.innerHTML=`Here are some recipes for ${searchString}`
+                console.log(searchString)
+                const endpoint = `https://api.edamam.com/api/recipes/v2?type=public&q=${searchString}&app_id=${apid}&app_key=${appkey}`
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                load.style="display: none;"
+                recipecon.appendChild(text2)
+                // console.log(data);
+                const recipes = data.hits;
+                // console.log(recipes);
+                recipes.forEach(obj => {
+                    const { recipe } = obj
+                    // console.log(recipe);
+                    const recipecard=document.createElement('div')
+                    const img=document.createElement('img')
+                    const name=document.createElement('h2')
+
+                    recipecard.style=`
+                    margin-top:20px;
+                    border: black;
+                    border-style: solid;
+                    border-radius: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    box-shadow: 20px 20px 20px rgba(0,0,0,.1)
+                    `
+                    img.style=`
+                    width: 50%;
+                    margin-top: 10px;
+                    border-radius: 10px
+                    `
+                    name.style=`
+                    margin: 20px;
+                    `
+                    img.src = recipe.image;
+                    name.innerHTML = recipe.label
+                    recipecard.appendChild(img)
+                    recipecard.appendChild(name)
+                    recipecon.appendChild(recipecard)
+                    body.appendChild(recipecon)
+
+                })
+
+
+            } catch (error) {
+
+            }
+        }
+
+        searchbut.addEventListener('click', searchForRecipe)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <script>
+                /*
+                
+                greet()
+                greet2()
+
+                function greet(){ // way one of defining a function
+                    console.log("hello1")
+                }
+
+                const greet2 = function(){ //way two of defining a function
+                    console.log("hello2")
+                }
+
+                output will be 
+                hello
+                refernce error: cannot access greet2 before intialization
+                
+                */
+
+
+                /*
+                
+                another way of defining a function which is similar to 2nd method is
+
+
+                
+                const greet2 = (parameters) => {
+
+                }
+
+
+                if there is only one line of code in function then we can remove paraenthesis
+
+                const greet2 = () => console.log("hello")
+                
+                */
+
+
+                /*
+                
+                The => arrow notaion can be used to reduce the code line or to remove redundant code 
+                example
+
+
+                way 1:
+                const arr=[1,2,3,4,5]
+
+                function callback(item){
+                    return item*2
+                }
+
+                const newar=arr.map(callback)
+
+
+                way 2:
+                const arr=[1,2,3,4,5]
+
+                const arr2= arr.map(item => item *2)
+
+                console.log(arr2)
+
+                
+                */
+
+
+
+                
+                /*
+                 program for findind even number form below array, using filter and map
+
+
+                using map:
+                const arr1=[1,2,3,4,5,6,7,8,9]
+
+                const fun1 = (val) =>{
+                    if(val%2==0)
+                    {
+                        return val
+                    }
+                }
+
+                const ar21= arr1.map(fun1)
+
+                console.log(ar21)
+
+
+
+                using filter:
+                const arr=[1,2,3,4,5,6,7,8,9]
+
+                const fun = (val) =>{
+                    if(val%2==0)
+                    return true
+                    else
+                    return false
+                }
+
+                const ar2= arr.filter(fun)
+
+                console.log(ar2)
+
+
+
+                after executing both codes we can clearly see the difference, map will return all the value 
+                of odd number as undefined 
+
+                and filter will only return even values
+
+                */
+
+
+                /*
+
+                const arr=[1,2,3,4,5,6,7,8,9]
+
+                // const fun = (val) =>{
+                //     if(val%2==0)
+                //     return true
+                //     else
+                //     return false  
+                // } 
+                
+                below is the shortcut
+
+                const ar2= arr.filter(element => element%2===0)
+
+                console.log(ar2)
+
+                */
+
+
+                /*
+
+                const arr=[1,2,3,4,5,6]
+
+                function cb ={
+                    if(ele===5) return ele
+                }
+
+                below is shortcut
+
+                console.log(arr.find(ele => ele===5))
+
+                */
+
+
+
+                /*
+
+                'this' keyword is used to point current/parent object, by default parent obejct is window object
+
+                const greet = function(){
+                    console.log(this)
+                }
+
+                const greetarrow = ()=>{
+                    console.log(this)
+                }
+
+                greet()
+                greetarrow()
+
+                const ob={
+                    name: "ganesh",
+                    greet: function(){
+                        console.log(this)
+                    },
+                }
+
+                ob.greet()
+                console.log(ob.greet())
+                console.log(ob['greet'])
+
+                */
+
+        </script>
+    </body>
+    <h1>Go to browsers console to see js console output</h1>
+</html>

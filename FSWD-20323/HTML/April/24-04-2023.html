@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+
+        <script>
+
+
+            /*
+            
+            const response= fetch('https://jsonplaceholder.typicode.com/todos')
+            console.log(response)
+
+            response.then(resobj=>{
+                console.log(resobj)
+                const data=resobj.json()
+                data.then(actualdata=>{
+                    console.log(actualdata)
+                })
+            })
+
+            Instead of above code i.e. using promises we can use async and await
+
+             const getData= async ()=>{
+                const response= await fetch('https://jsonplaceholder.typicode.com/todos')
+                //await can only be apply on a promise and it tells that wait untill the promime is over then execute reaining
+                const data = await response.json()
+                console.log(data)
+            }
+            // use try catch block to catch any error
+            getData()
+
+
+            */
+
+
+            /*
+            
+            const getData= async ()=>{
+                console.log(1)
+                await new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 3000);
+                })
+                console.log(2)
+                await new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 2000);
+                })
+                console.log(3)
+            }
+
+            getData()
+            console.log('hello')
+
+            output: 1 hello 2 3
+            we get the above output because we are using await, hence we wait untill the promise returns something
+            and we get 1 and the hello because , 1st the function executes and 1st line is sync bit/code
+            hence 1 will be printed, now when we moves to 2nd line, we see that it is async code, hence
+            it will get into queue and remaing sync code will be executed i.e. hello
+
+
+
+
+
+
+
+              const getData= async ()=>{
+                console.log(1)
+                new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 3000);
+                }).then(()=>{console.log(2)})
+                new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 2000);
+                }).then(()=>{console.log(3)})
+            }
+
+            getData()
+            console.log('hello')
+
+
+            output: 1 hello 3 2
+
+            now in this case the output will not be async because we removed await, hence it will not wait for a promise to return a value
+
+
+            
+            
+            
+            */
+            const getData= async ()=>{
+                console.log(1)
+                new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 3000);
+                }).then(()=>{console.log(2)})
+                new Promise(resolve=>{
+                    setTimeout(() => {
+                        resolve()
+                    }, 2000);
+                }).then(()=>{console.log(3)})
+            }
+
+            getData()
+            console.log('hello')
+
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,235 @@
+<html>
+
+<head>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1>ToDo list</h1>
+    <h2><input type="text"><button>Add</button></h2>
+    <ul>
+
+    </ul>
+
+    <script>
+
+
+        /* This whole program is for TODO list with local storage */
+
+        const key='todos'
+        const todocontainer = document.querySelector('ul')
+        const input = document.querySelector('input')
+        const but = document.querySelector('button')
+        const ul = document.querySelector('ul')
+
+        var todo = []
+
+        const initialize=()=>{
+            /*
+                1. check if there is data in local storage
+                2. is there is, load it
+                3. if there is'nt the create an empty array and we'll that array and we will add the arrar in loacl storage
+            */
+           const data=localStorage.getItem(key)
+           if(!data){
+                todo=[]
+                return
+           }
+           else{
+            todo=JSON.parse(data)
+            todo.forEach((todos)=>{
+                const li = document.createElement('li')
+                const but2 = document.createElement('button')
+                const edit = document.createElement('button')
+                const tempid=document.createElement('li')
+                tempid.innerHTML=todos.id
+                tempid.style.display='none'
+                but2.innerHTML = ' Delete'
+                but2.style.margin = '10px'
+                edit.innerHTML = 'Edit'
+                li.innerHTML=todos.text
+                li.appendChild(but2)
+                li.appendChild(edit)
+                ul.appendChild(li)
+                li.appendChild(tempid)
+                but2.addEventListener('click', (event) => {
+                    li.remove()
+                    var ind = null;
+                    var id = todos.id
+                    console.log(id)
+                    todo.forEach((todos) => {
+                        ind = todo.findIndex((todos) => todos.id == id)
+                    })
+
+                    console.log(ind)
+                    todo.splice(ind, 1)
+                    console.log(todo)
+                    localStorage.setItem(key,JSON.stringify(todo))
+                })
+
+
+                edit.addEventListener('click', (event) => {
+                    const editbox = document.createElement('input')
+                    const cancel = document.createElement('button')
+                    const save = document.createElement('button')
+                    editbox.type = 'text'
+                    cancel.innerHTML = 'Cancel'
+                    save.innerHTML = 'Save'
+                    edit.remove()
+                    li.appendChild(save)
+                    li.appendChild(cancel)
+                    li.appendChild(editbox)
+
+
+
+                    cancel.addEventListener('click', (event) => {
+                        editbox.remove()
+                        cancel.remove()
+                        save.remove()
+                        li.appendChild(edit)
+                    })
+
+
+                    save.addEventListener('click', (event) => {
+                        if (editbox.value != null && editbox.value != '') {
+                            const newitem = editbox.value
+                            li.innerText = newitem
+                            var ind
+                            todo.forEach((todos) => {
+                                const id = todos.id
+                                ind = todo.find((todos) => todos.id === id)
+                            })
+                            ind.text = newitem
+                            console.log(todo)
+                            save.remove()
+                            cancel.remove()
+                            editbox.remove()
+                            li.appendChild(but2)
+                            li.appendChild(edit)
+                            localStorage.setItem(key,JSON.stringify(todo))
+                        }
+                        else {
+                            window.alert('Cannot add empty item')
+                        }
+                    })
+
+                })
+
+
+                
+            })
+            return
+           }
+        }
+        initialize()
+
+        
+
+        but.addEventListener('click', (ele) => {
+            const add = input.value
+
+            if (add != null && add != '') {
+                todo.push({
+                    text: add,
+                    completed: false,
+                    id: Date.now(),
+                })
+                
+
+                const but2 = document.createElement('button')
+                const edit = document.createElement('button')
+                const li = document.createElement('li')
+                const tempid=document.createElement('li')
+                tempid.innerHTML=Date.now()
+                tempid.style.display='none'
+                but2.innerHTML = ' Delete'
+                but2.style.margin = '10px'
+                edit.innerHTML = 'Edit'
+                li.innerHTML = add;
+                li.appendChild(but2)
+                li.appendChild(edit)
+                li.appendChild(tempid)
+                ul.appendChild(li)
+
+
+                localStorage.setItem(key,JSON.stringify(todo))
+                but2.addEventListener('click', (event) => {
+                    li.remove()
+                    var ind = null;
+                    var id = tempid.innerHTML
+                    console.log(id)
+                    todo.forEach((todos) => {
+                        ind = todo.findIndex((todos) => todos.id == id)
+                    })
+
+                    console.log(ind)
+                    todo.splice(ind, 1)
+                    console.log(todo)
+                    localStorage.setItem(key,JSON.stringify(todo))
+                })
+
+
+                edit.addEventListener('click', (event) => {
+                    const editbox = document.createElement('input')
+                    const cancel = document.createElement('button')
+                    const save = document.createElement('button')
+                    editbox.type = 'text'
+                    cancel.innerHTML = 'Cancel'
+                    save.innerHTML = 'Save'
+                    edit.remove()
+                    li.appendChild(save)
+                    li.appendChild(cancel)
+                    li.appendChild(editbox)
+
+
+
+                    cancel.addEventListener('click', (event) => {
+                        editbox.remove()
+                        cancel.remove()
+                        save.remove()
+                        li.appendChild(edit)
+                    })
+
+
+                    save.addEventListener('click', (event) => {
+                        if (editbox.value != null && editbox.value != '') {
+                            const newitem = editbox.value
+                            li.innerText = newitem
+                            var ind
+                            todo.forEach((todos) => {
+                                const id = todos.id
+                                ind = todo.find((todos) => todos.id === id)
+                            })
+                            ind.text = newitem
+                            console.log(todo)
+                            save.remove()
+                            cancel.remove()
+                            editbox.remove()
+                            li.appendChild(but2)
+                            li.appendChild(edit)
+                            localStorage.setItem(key,JSON.stringify(todo))
+                        }
+                        else {
+                            window.alert('Cannot add empty item')
+                        }
+                    })
+
+                })
+
+
+
+
+            }
+            else {
+                window.alert('Cannot add empty item')
+            }
+
+            input.value = ''
+        })
+
+    </script>
+</body>
+
+</html>

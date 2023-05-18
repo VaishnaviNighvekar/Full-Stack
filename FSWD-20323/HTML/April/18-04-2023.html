@@ -1,0 +1,308 @@
+<html>
+    <head>
+        <style>
+            *{
+              
+                box-sizing:border-box;
+            }
+            body{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            button{
+                padding: 10px 20px;
+                margin: 10px;
+
+            }
+            #heading-box,#play-area,#roundsinfo{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+            }
+            #srbut, #play-area-container{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Rock-Paper-Sessiors</h1>
+        <div id="heading-box">
+            <h2 id="rounds-heading">Select number of rounds</h2>
+            <div id="srbut">
+                <button id="startbutton">Start</button>
+                <input id="roundsin" type="number" max="10" min="1" value="1" >
+                <button id="donebutton">Done</button>
+            </div>
+        </div>
+        <div id="play-area-container">
+            <div id="play-area">
+                <h3 id="roundno">Round: </h3>
+                <h4>Select any one -></h4>
+                <div id="rpsbut">
+                    <button style="margin-left: 0;" id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="sicssors">Sicssors</button>
+                </div>
+                <h1 id="res">Win</h1>
+                <h4 id="com">Computer Selected</h4>
+            </div>
+            <div style="margin-top: 80px;margin-left: 40px;" id="roundsinfo">
+                <label id="roundsr">Rounds Remaining : </label><br>
+                <label id="roundsw">Rounds Won : </label><br>
+                <label id="roundsd">Rounds Draw : </label><br>
+                <label id="roundsl">Rounds Loss : </label><br>
+            </div>
+        </div>
+        <script>
+            /*
+            Aim: design a rock-paper-sessiors game, where users selectes an option and computer seleted a 
+            random option
+            */
+
+            const startbutton=document.getElementById('startbutton')
+            const headingbox=document.getElementById('heading-box')
+            const body=document.querySelector('body')
+            const srbut=document.getElementById('srbut')
+            const donebutton=document.getElementById('donebutton')
+            const roundsin=document.getElementById('roundsin')
+            const playarecontainer=document.getElementById('play-area-container')
+            const wintxt=document.getElementById('res')
+            const comtxt=document.getElementById('com')
+            const roundno=document.getElementById('roundno')
+            const roundsr=document.getElementById('roundsr')
+            const roundsw=document.getElementById('roundsw')
+            const roundsd=document.getElementById('roundsd')
+            const roundsl=document.getElementById('roundsl')
+            const paper=document.getElementById('paper')
+            const rock=document.getElementById('rock')
+            const sicssors=document.getElementById('sicssors')
+            const rpsbut=document.getElementById('rpsbut')
+
+
+
+            playarecontainer.remove()
+            donebutton.remove()
+            roundsin.remove()
+
+            startbutton.addEventListener('click',(event)=>{
+                startbutton.remove()
+                srbut.appendChild(donebutton)
+                srbut.appendChild(roundsin)
+            })
+
+            var roundcount=1
+            var wins=0
+            var draw=0
+            var loss=0
+            var flag=null
+            var roundsrem=roundsin.value-1
+            
+
+            function roundscal(){
+                roundno.innerHTML=`Round: ${roundcount}`
+                roundsr.innerHTML=`Rounds Remaining: ${roundsin.value-1}`
+                roundsw.innerHTML=`Rounds Win: ${wins}`
+                roundsd.innerHTML=`Rounds Draw: ${draw}`
+                roundsl.innerHTML=`Rounds Loss: ${loss}`
+
+            }
+
+            function resultgen(txt,txt2){
+                rpsbut.appendChild(wintxt)
+                rpsbut.appendChild(comtxt)
+                wintxt.innerHTML=txt
+                comtxt.innerHTML=`Computer has genrated ${txt2}`
+                roundno.innerHTML=`Round: ${roundcount+1}`
+                roundsr.innerHTML=`Rounds Remaining: ${roundcount-roundsrem}`
+                roundsw.innerHTML=`Rounds Win: ${wins}`
+                roundsd.innerHTML=`Rounds Draw: ${draw}`
+                roundsl.innerHTML=`Rounds Loss: ${loss}`
+            
+
+            }
+
+            function over(){
+                window.alert(`Total rounds: ${roundcount}\nTotal wins: ${wins}\nTotal draw: ${draw}\nTotal Loss: ${loss}`)
+                playarecontainer.remove()
+                const playagain=document.createElement('button')
+                const exit=document.createElement('button')
+                playagain.innerText='Play Again'
+                exit.innerText='Exit'
+                body.appendChild(playagain)
+                body.appendChild(exit)
+                playagain.addEventListener('click',(event)=>{
+                    body.appendChild(headingbox)
+                    playagain.remove()
+                    exit.remove()
+                    
+
+                })
+                exit.addEventListener('click',(event)=>{
+                    playarecontainer.remove()
+                    headingbox.remove()
+                    playagain.remove()
+                    exit.remove()
+                    const h11=document.createElement('h1')
+                    h11.innerHTML="You can close the window"
+                    body.appendChild(h11)
+
+                })
+
+            }
+
+
+            donebutton.addEventListener('click',(event)=>{
+                    roundcount=1
+                    wins=0
+                    draw=0
+                    loss=0
+                    flag=null
+                    roundsrem=roundsin.value
+                if(roundsin.value<=10 && roundsin.value>=1){
+                    headingbox.remove()
+                    body.appendChild(playarecontainer)
+                    wintxt.remove()
+                    comtxt.remove()
+                    roundscal()
+          
+                }
+                else{
+                    window.alert('Rounds can only be from 1 to 10')
+                }
+            })
+
+            rock.addEventListener('click',(event)=>{
+
+                if(roundcount==roundsin.value){
+                    flag=1
+                    let x=Math.floor((Math.random() * 3) + 1)
+                    console.log(x)
+                    if(x==1){
+                        draw++
+                        resultgen('Draw!!!','Rock')
+                    }
+                    else if(x==2){
+                        loss++
+                        resultgen('Loss!!!','Paper')
+                    }
+                    else{
+                        wins++
+                        resultgen('Win!!!','Sicssors')
+                    }
+                    over()
+                    return null
+                }
+
+
+                flag=1
+                let x=Math.floor((Math.random() * 3) + 1)
+                console.log(x)
+
+                if(x==1){
+                    draw++
+                    resultgen('Draw!!!','Rock')
+                }
+                else if(x==2){
+                    loss++
+                    resultgen('Loss!!!','Paper')
+                }
+                else{
+                    wins++
+                    resultgen('Win!!!','Sicssors')
+                }
+                roundcount++
+                
+                
+            })
+            paper.addEventListener('click',(event)=>{
+                if(roundcount==roundsin.value){
+                    
+                    flag=2
+                    let x=Math.floor((Math.random() * 3) + 1)
+                    console.log(x)
+
+                    if(x==2){
+                        draw++
+                        resultgen('Draw!!!','Paper')
+                    }
+                    else if(x==3){
+                        loss++
+                        resultgen('Loss!!!','Sicssors')
+                    }
+                    else{
+                        wins++
+                        resultgen('Win!!!','Rock')
+                    }
+                    over()
+                    return null
+                }
+            
+
+
+                flag=2
+                let x=Math.floor((Math.random() * 3) + 1)
+                console.log(x)
+
+                if(x==2){
+                    draw++
+                    resultgen('Draw!!!','Paper')
+                }
+                else if(x==3){
+                    loss++
+                    resultgen('Loss!!!','Sicssors')
+                }
+                else{
+                    wins++
+                    resultgen('Win!!!','Rock')
+                }
+                roundcount++
+            })
+            sicssors.addEventListener('click',(event)=>{
+                if(roundcount==roundsin.value){
+                    flag=3
+                    let x=Math.floor((Math.random() * 3) + 1)
+                    console.log(x)
+
+                    if(x==3){
+                        draw++
+                        resultgen('Draw!!!','Sicssors')
+                    }
+                    else if(x==1){
+                        loss++
+                        resultgen('Loss!!!','Rock')
+                    }
+                    else{
+                        wins++
+                        resultgen('Win!!!','Paper')
+                    }
+                    over()
+                    return null
+                }
+                flag=3
+                let x=Math.floor((Math.random() * 3) + 1)
+                console.log(x)
+
+                if(x==3){
+                    draw++
+                    resultgen('Draw!!!','Sicssors')
+                }
+                else if(x==1){
+                    loss++
+                    resultgen('Loss!!!','Rock')
+                }
+                else{
+                    wins++
+                    resultgen('Win!!!','Paper')
+                }
+                roundcount++
+            })
+            
+
+
+        </script>
+    </body>
+</html>

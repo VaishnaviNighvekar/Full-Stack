@@ -1,0 +1,120 @@
+<!-- functions in js -->
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            v1('vaishu')
+            // v2('vaibhu')//error
+            // we can assign a function to variable
+            // var and function is hoisting at a top
+            
+            function v1(name){
+                console.log(name)
+            }
+            const v2=function(name)
+            {
+                console.log(name)
+            }
+            v1('vaishu')
+            v2('vaibhu')
+
+            // default value
+            function v1(name='default'){
+                console.log(name)
+            }
+            v1()
+
+            // another way to declare function using arrow
+            const v3 = (name)=>{
+                console.log(name)
+            }
+            v1('vai')
+            v2('vaib')
+            console.log(this)
+
+
+            // regular return 
+            const sum= function(a,b){
+                return a+b
+            }
+            console.log(sum(1,2))
+
+            // shortcut to return using arrow function
+            const arrowsum = (a,b)=>a+b
+            console.log(arrowsum(1,2))
+
+            // function for array
+            const arr=[1,2,3,4,5,6,7,8]
+            function callback(item){
+                return item*2
+            }
+            const newarr=arr.map(callback)
+            console.log(newarr)
+
+            // shortcut for array function using arrow
+            const arrow_arr = arr.map(item=>item*2)
+            console.log(arrow_arr)
+
+            // even element print
+            function arr3(element)
+            {
+               if(element%2==0){
+                return element
+               }
+            }
+            const arr6=arr.map(arr3)
+            console.log(arr6)
+            // op=[undefined, 2, undefined, 4, undefined]
+            
+            // filter
+            function arr3(element)
+            {
+               if(element%2==0){
+                return true
+               }
+            }
+            const arr7=arr.filter(arr3)
+            console.log(arr7)
+
+            // filter +arrow
+            const newa=arr.filter(element=>element%2==0)
+            console.log(newa)
+
+            // find method
+            function f1(element){
+                if(element==4)
+                return element
+            }
+            const result=arr.find(f1)
+            console.log(result)
+
+            // find with arrow 
+            const f2=arr.find(element=>element==4)
+            console.log(f2)
+
+            // this keyword point to the parent 
+            console.log(this)
+            const ob= {
+                vn: "vaishu",
+                vc:function(){
+                    console.log(this)
+                },
+
+            }
+            ob.vc()
+            // arrow for this 
+            const ob1= {
+                vnn: "vu",
+                vc: () => {
+                    console.log(this)
+                },
+
+            }
+            ob.vc()
+
+            
+        </script>
+    </body>
+</html>

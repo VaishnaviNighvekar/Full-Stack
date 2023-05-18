@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>
+            to view JS output go to console screen of the browser
+        </h1>
+
+        <!--
+            ES6 provide functions like
+            - Arrow functions
+            - default values of parameters
+            - termplate strings
+        -->
+
+        <script>
+
+            /*
+
+            following is the example of template string and normal string
+            template string is more powerfull because we can inject variables in it, it is denoted by
+            `` backtiks
+
+
+
+            const name="ganesh"
+            const age= 21
+
+            ress="name is " + name +" and age is " + age //noramal string
+            console.log(ress)
+
+            const res=`Name is ${name} and age is ${age}` //template string
+
+            console.log(res)
+            
+            */
+
+            /*
+            we can clone our array in multiple way
+
+            const a=[1,2,3,4,5]
+            const b= a.map(val => val) //we cant use a=b, cuz both will get same address and will not clone
+
+            but there is more easy way to do this using spread operator"..."
+
+            const a = [1,2,3,4,5]
+            const b = [...a]
+
+            using this spread array we can concat 2 or more array
+
+            const c = [...a,...b]//now c contains element of a and b
+
+            const d=[...a,b]// in this code we have spreaded a but not b, hence 4th element of array d will be 
+            array of 5 element i.e b
+
+
+
+            similary we can also clone an object using spread operator eg:
+
+            const a={
+                name: 'Eren',
+                age: 21
+            }
+            
+            const b={
+                ...a,
+            }
+
+
+           
+
+            */
+
+
+            /*
+            
+
+            suppose we have obecjt inside object and then we clone it using spread operator
+            
+            const a={
+                name:'eren'
+                age: 21,
+                car:{
+                    brand:'mercedis'
+                    model:'CB300'
+                }
+            }
+
+            cosnt b={
+                ...a,
+            }
+
+
+            console.log(b) // we will see same structure as of a
+
+            after above code ->
+
+            a.name='beager'
+            a.age=22
+            a.car.brand='audi'
+            a.car.model='A4'
+
+
+            console.log(b) // we can see only direct attributes of 'a' has remained same and all
+            attributes of c has changes
+            
+            
+            */
+
+
+            /*
+            
+            
+             const a={
+                name:'eren',
+                age: 21,
+                car:{
+                    brand:'mercedis',
+                    model:'CB300',
+                }
+            }
+            
+
+            for(key in a){
+                console.log(key,a[key])
+            }
+            
+            we can iterate an object using for loop, 'a' is the obecjt and name,age,car are key with there 
+            respective values we can access an value using a[key]
+            
+            
+            */
+
+
+
+            /*
+
+            destructing objects and arrays
+
+            
+            const a={
+                name:'eren',
+                age: 21,
+                car:{
+                    brand:'mercedis',
+                    model:'CB300',
+                }
+            }
+
+            to copy each element of the object in an other variable we can use the following code
+            
+            // const name=a.name;
+            // const age=a.age;
+            // const c=a.car;
+
+            but instead of this we have a shortcut
+
+            const {name,age,car}=a // works same as above three lines
+
+            const {name,age,c}=a // name and age will be copied but c will be undefined because it is not in a
+
+            we can assing a specific name to specific attribut 
+            eg:
+
+            const {name:name1,age:age1,car:car1}=a // now car1 will only take values of car, no matter the
+            sequence/ordering in above destructing
+
+
+
+            we can do the same thing in array
+
+            ar=['jhon','eren','yeager']
+            const [name1,name2,name3]=ar
+            console.log(name1,name2,name3) // will print jhon,erne, yeager
+            
+
+            
+            */
+
+            
+            /*
+
+                we can use spread operator to take any number of input as parameter and covert them in
+                array
+
+                const greet = (...rt) => {
+                    console.log(rt) // print all values as array
+                }
+
+                greet('hello',21,ok)
+
+
+
+                spread operator can also be used while destructuring
+
+                const[name1,...rest] = ['jhon',21,'no']
+
+                console.log(name1) // prints jhon
+                console.log(rest) // prints 21, no in array
+
+
+            */
+        </script>
+    </body>
+</html>

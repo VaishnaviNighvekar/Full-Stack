@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <style>
+ 
+            div.parent{
+                width: 600px;
+                height: 500px;
+                background-color: black;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+
+            div.child{
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                background-color: yellow;
+            }
+
+            
+        </style>
+    </head>
+    <body>
+        <!-- span is inline element and hence we cant give height and width to it, but we can change these
+        inline elemnt to block element like div, by using display property
+
+
+        span{
+                width:100px;
+                height: 100px;
+                background-color: yellowgreen;
+                display: block
+            }
+
+            div{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                display: inline;
+
+            }
+
+            above style is used to interchange the block and inline property of div and span respectivly
+
+        
+        <span>
+        </span>
+        <div>            
+        </div>
+
+        -->
+
+
+
+        <!--
+
+              div{
+                width: 100px;
+                height: 100px;
+                background-color: yellow;
+                display: inline-block;
+
+            }
+            
+
+            keeping element as inline element but still can give height and width using display:inline-block
+        -->
+
+
+        <!--We are using flex attribute to easily position our elements in the center or any other position
+            of the container, by default it is positioning in row wise manner, to change it to column manner
+            we used flex-direction: column-->
+
+
+         div.parent{
+                width: 600px;
+                height: 500px;
+                background-color: black;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                
+            }
+            we can use align items in case of justify cinten, through which we can align our elements in the
+             align items center/end/top etc of page.
+            div.child{
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                background-color: yellow;
+            }
+
+
+          <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+          </div>
+
+
+        
+
+
+        <!--when we compare above and below code with same styling we can see that when number of child increases
+        then there width auitomatically decreases i.e. the are shrinking in the size, so to avoid this we can use 
+        flex-wrap: wrap, due to this width will not change and all the extra element s will move to the next column    
+        
+
+                div.parent{
+                width: 600px;
+                height: 500px;
+                background-color: black;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+        
+            }
+        add this in above style and see the change -> flex-warp: wrap;
+            div.child{
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+                background-color: yellow;
+            }
+
+        -->
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+
+        
+
+
+    </body>
+</html>

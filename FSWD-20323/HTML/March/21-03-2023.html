@@ -1,0 +1,133 @@
+<html>
+    <head>
+        <!--following *{...} is know as universal selector and it is used to apply styling to all elements 
+            in html page -->
+        <style>
+
+            *{
+                margin: 0;
+                padding:0;
+                box-sizing:border-box;
+            }
+
+            ul>li:not(.kind1){
+                background-color:red;
+            }
+            
+            .parent{
+                height: 50px;
+                background-color: blue;
+                padding: 10px;
+                width: 60%;
+
+            }
+
+            .child{
+                height: 20px;
+                background-color: black;
+                width: 50vw;
+            }
+
+
+
+        </style>
+        
+    </head>
+    <body>
+        <!--This is for how to use not selector
+        <ul>
+            <li class="kind1">hello3</li>
+            <li class="kind2">hello1</li>
+            <li class="kind3">hello2</li>
+        </ul>
+        -->
+
+
+        <!--Padding adds space between/inside the content while margin add space outside the content (can check
+            this statement, by inspecting in chrome and viewing the multiple layer of boxes)
+        <div class="kind1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa voluptatum amet? Enim, molestias 
+            provident modi nam sapiente aperiam ipsum!
+        </div>
+        -->
+
+
+        <!--kind1 is without box-sizing:border-box and kind2 is with box-sizing:border-box
+        
+            .kind2{
+                width: 300px;
+                height:300px;
+                background-color: yellowgreen;
+                margin:20px;
+                padding: 20px;
+                padding: 10px 20px 30px 40px;
+                box-sizing: border-box;
+            }
+            style for below div
+
+        <div class="kind2">
+
+
+            
+            .kind1{
+                width: 300px;
+                height:300px;
+                background-color: yellowgreen;
+                margin:20px;
+                padding: 20px;
+                padding: 10px 20px 30px 40px;
+            }
+            the above padding line is for top, bottom, right and left respectivly
+            style for below div
+
+
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa voluptatum amet? Enim, molestias 
+            provident modi nam sapiente aperiam ipsum!
+        </div>
+        -->
+
+
+
+
+        <!--
+
+
+             .parent{
+                height: 50px;
+                background-color: blue;
+                padding: 10px;
+                width: 60%;
+
+            }
+
+            .child{
+                height: 20px;
+                background-color: black;
+                width: 50%;
+            }
+ 
+
+            see the difference between percentage and vm unit while considering the width of child
+
+
+             .child{
+                height: 20px;
+                background-color: black;
+                width: 50vm;
+            }
+
+            after seeing the difference we can say that % is relative unit and it is relative to its
+            parent component/element and vm is relative unit which is relative to the viewing area of the 
+            screen(same for vh)
+ 
+
+
+        -->
+        <div class="parent">
+            <div class="child">
+
+            </div>
+        </div>
+
+    </body>
+</html>

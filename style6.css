@@ -1,0 +1,87 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+div.bar{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 50px;
+    background-color: blue;
+}
+/* Adding break point for different devices */
+@media(max-width:760px){
+    div.bar{
+        font-size: 30px;
+    }
+    
+}
+@media(max-width:500px){
+    div.bar{
+        font-size: 5px;
+    }
+    
+}
+/* Adding Warning */
+div.warning{
+    width: 100vw;
+    height:100vh;
+    font-size: 50px;
+    background-color: rgb(2, 2, 12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    position: absolute;
+}
+@media(max-width:400px){
+    div.warning{
+        display: flex;
+        color: azure;
+    }
+    
+}
+div.cards{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    /* flex-wrap: wrap;
+     */
+}
+@media(max-width:560px){
+    div.cards{
+        width: 100%;
+        flex-wrap:wrap;
+    }
+    
+}
+div.card{
+    width: 300px;
+    background-color: black;
+    border-radius: 5px;
+    margin:0px 10px;
+    text-align: center;
+    
+
+
+}
+div.card div{
+    color: azure;
+    padding: 10px 5px;
+    
+  
+}
+div.card img{
+    width:100%;
+}
+@media(max-width:560px){
+    div.card{
+        width: 100%;
+        background-color: rgb(220, 29, 29);
+        border-radius: 5px;
+        margin:0px 10px;
+        text-align: center;
+    }
+    
+}

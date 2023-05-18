@@ -1,0 +1,65 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+div.container{
+    height: 400px;
+    background-color: black;
+    
+}
+div.ball{
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: brown;
+    animation-duration: 1.5s;
+    animation-name: motion;
+    animation-iteration-count: infinite;
+    position: absolute;
+    
+
+}
+div.ball1{
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    animation-duration: 2s;
+    animation-name: motion;
+    animation-iteration-count: infinite;
+    position: absolute;
+    
+
+}
+div.ball2{
+    width:50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgb(205, 140, 206);
+    animation-duration: 3s;
+    animation-name: motion;
+    animation-iteration-count: infinite;
+    position: absolute;
+    
+
+}
+@keyframes motion{
+    0%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(60px,350px);
+    }
+    75%{
+        transform: translate(140px, 350px);
+    }
+    85%{
+        transform: translate(500px, 200px);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+
+
+}

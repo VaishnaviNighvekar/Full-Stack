@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <style>
+            .kind1 {
+                color: brown;
+            }
+
+            .kind4 li{
+                /* select all li*/
+                color:#df3090  ;
+            }
+            ul.kind3 li {
+                /* select specific i.e li under ul */
+                color: #eff256;
+            }
+
+
+            #id1 {
+                /* id selector */
+                color: aqua;
+            }
+
+            /* ul{
+                color: coral;
+            } */
+            ul h1{
+                /* <! ---combine selector--!> */
+                color: rgb(91, 29, 6);
+            }
+
+            ul>li {
+                /* <! ---select direct children--!> */
+                color: rgb(142, 151, 14);
+            }
+
+            ul>li:first-child{
+                /* first child selected */
+                color: darkgreen;
+            }
+
+            ul>li:nth-child(3){
+                /* 2nd child selected */
+                color: rgb(115, 169, 115);
+            }
+
+            div{
+                background-color: aquamarine;
+               
+                width: 300px;
+                cursor: pointer;
+                /* background-position: center;
+                background-size: contain; */
+            }
+            div:hover{
+                /* sudo selector */
+                background: bisque;
+                /* progress o */
+                cursor: progress;
+            }
+
+            input:focus {
+                /* <!-- imput focus to hover the text --> */
+                background-color: blue;
+            }
+
+            p::selection{
+            
+                background-color: blue;
+            }
+
+            
+        </style>
+    
+    </head>
+    <body>
+
+        <!-- imput focus to hover the text -->
+        <input type="text">
+
+
+        <!-- para selector -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque tenetur perspiciatis dicta delectus, minus dolorem, quia libero similique dignissimos esse incidunt odio. Vel, sapiente quia! Est ipsa quae dolor. Beatae!</p>
+        
+        <ul style="color: Blue;">
+            <h1 id="id1"> Kind </h1>
+            <li class="kind1">kind 2</li>
+            <li class="kind1">kind 3</li>
+            <li class="kind1">kind 1</li>
+        </ul>
+
+        <ul>
+            <!-- ul>li direct child -->
+            <li>kind 2</li>
+            <li>kind 3</li>
+            <li>kind 1</li>
+                    <ul>
+                        <!-- not direct child -->
+                        <h1>Not direct children--combine selector for h1</h1>
+                        <li>kind 2</li>
+                        <li>kind 3</li>
+                        <li>kind 1</li>
+                    </ul>
+        </ul>
+
+
+        <ul>
+            <!-- /* select all */ -->
+            <li class="kind2">kind 1</li>
+            <li  class="kind2">kind 2</li>
+            <li  class="kind2">kind 3</li>
+        </ul>
+        <div class="kind3">
+        <!-- /* select specific i.e li under ul so color not change*/ -->
+            <li>kind 3</li>
+            <li>kind 1</li>
+            <li>kind 2</li>
+            
+        </div>
+        <ul class="kind3">
+            <!-- /* select specific i.e li under ul */ -->
+            <li class="kind2">kind 1</li>
+            <li  class="kind2">kind 2</li>
+            <li  class="kind2">kind 3</li>
+        </ul>
+
+        <ul class="kind4">
+            <!-- /* select specific i.e li under ul */ -->
+            <li class="kind2">kind 1</li>
+            <li  class="kind2">kind 2</li>
+            <li  class="kind2">kind 2</li>
+            <li  class="kind2">kind 2</li>
+            <li  class="kind2">kind 3</li>
+        </ul>
+    </body>
+</html>
+
+<!-- practice on :  https://flukeout.github.io/  -->

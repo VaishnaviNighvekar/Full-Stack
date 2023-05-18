@@ -1,0 +1,116 @@
+
+
+
+<!-- var let const and scope -->
+<html>// Write, Edit and Run your Javascript code using JS Online Compiler
+
+<body>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus unde blanditiis amet. Asperiores omnis expedita minima velit animi iusto, odit ipsum sequi maxime facilis voluptates quis debitis voluptatibus cum a?
+    <script>
+        
+            // variable
+            let age=123
+            console.log(typeof age)
+            // const name="This is string"
+            // console.log(typeof name)
+            // const bull=true
+            // console.log(typeof bull)
+            console.log(age)
+            // const names=["name1","name2"]
+            // console.log(names)
+            // names.length
+
+            console.log(window)
+            // obj
+            
+            const myObject ={
+                name:"name of this obj",
+                age:22,
+                col:{
+                    name:"name of this obj",
+                    age:21
+                }
+                
+            }
+            console.log(myObject)
+            // function
+            function greet(){
+                console.log("hii this is me")
+            }
+            greet()
+            function greet(time){
+                console.log("hii this is me"+time)
+            }
+            greet("6am")
+            console.log(age)
+            const val =1+"va"
+            console.log(typeof val)
+            age=50;
+            console.log(age)
+
+            // var is global we can modify it
+            var age1=70;
+            age1=90;
+            console.log(age1)
+
+            // array
+            const a=[1,2,4,6]
+            console.log(a)
+
+            // for loop
+            for( let i=0;i<=a.length-1;i++){
+                console.log(a[i])
+            }
+        
+
+            // for each loop - it will call fun for each iteration
+            function iterate(currentValue,currentIndex)
+                {console.log(currentValue,currentIndex)}
+            a.forEach(iterate)//if we use map it will give same result but--
+
+            // map - you can return someting  use to clone array
+            function iterate1(currentValue,currentIndex)
+                {return currentValue
+                }
+            const newarr =a.map(iterate1)
+            console.log(newarr)
+            
+            // add ele at last
+            a.push(34)
+            console.log(a)
+            b=a.push()
+            console.log("num of element "+b)
+
+            // add ele at start
+            a.unshift(35)
+            console.log(a)
+
+            // pop ele from end
+            b=a.pop()
+            console.log(b)
+            console.log(a)
+
+            // pop ele from start
+            b=a.shift()
+            console.log(b)
+            console.log(a)
+
+
+            
+            // pointing to same obj
+            const d = {
+                name:'vaishu',
+
+            }
+            const f=d
+            f.name='vaibhu'
+            console.log(d)
+            console.log(f)
+
+
+
+
+           
+    </script>
+</body>
+</html>

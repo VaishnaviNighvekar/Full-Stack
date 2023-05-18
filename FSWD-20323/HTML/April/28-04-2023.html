@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <style>
+           
+
+            body.dark{
+                background-color: black;
+                color: white;
+            }
+
+            body.light{
+                background-color: white;
+                color: black;
+                height: 100vh;
+            }
+
+        </style>
+    </head>
+    <body>
+        <button>Toggle</button>
+        <script>
+
+            /*
+            localStorage.setItem('key' , 'value') // localstorage is an object which contain various functions 
+            to access the local storage of the machine
+            // to see local storgae on the browser go to developer tools(inspect) -> application -> localstorage
+
+            
+            const object={
+                name: 'Ganesh',
+                age: 20
+            }
+            const arr=['ganesh',20,'pandit']
+
+            localStorage.setItem('obj', JSON.stringify(object)) //JSON.stringify is used to convert object,array into string form
+            localStorage.setItem('arr', JSON.stringify(arr))
+
+            temp = JSON.parse(data) //to convert stringify data back into JSON(array/object) data
+
+            localStorage,clear() //used to delete local storge
+            */
+
+
+
+            /*
+            An small appnication to switch to light or dark mode, but when page is refresed or tab is closed,
+            the browser should remember the last mode, using local storage
+
+
+            html:
+            <button>Toggle</button ton>
+
+
+            css:
+                body.dark{
+                background-color: black;
+                color: white;
+            }
+
+            body.light{
+                background-color: white;
+                color: black;
+                height: 100vh;
+            }
+
+
+
+            JS:
+
+
+            const button=document.querySelector('button')
+            const body=document.querySelector('body')
+
+
+            const init=()=>{
+                const currentTheme=localStorage.getItem('theme')
+                if(currentTheme==='dark')
+                {
+                    body.classList.add('dark')
+                }
+            }
+            init() //self calling function
+
+
+            const changeTheme = ()=>{
+                console.log('hello')
+                const currentTheme=body.classList.contains('dark') ? 'dark' : 'light';
+                body.classList.toggle('dark')
+                localStorage.setItem('theme',currentTheme==="dark"? 'light': 'dark')
+            }
+
+            button.addEventListener('click',changeTheme)
+
+            */
+
+
+            /*
+
+            navigator.geolocation.getCurrentPosition((position)=>{
+                console.log(position)
+            }) //used to access your current location
+
+
+            navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+                console.log(stream)
+            }) // used to access microphone
+
+            navigator.mediaDevices.getUserMedia({video:true}).then(stream=>{
+                console.log(stream)
+            }) //used to access camera
+
+
+            alert('this is alert')    // used to dispaly and alert message 
+
+            const name= prompt('type your name') //used to promt/alert and accept some input 
+            console.log(name)
+
+            */
+
+            
+        </script>
+    </body>
+</html>

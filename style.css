@@ -1,0 +1,118 @@
+body{
+    /* background-image: linear-gradient(to right,var(--tw-gradient-stops));
+    --tw-gradient-from: #5c258d;
+    --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to,rgba(92,37,141,0));
+    --tw-gradient-to: #4389a2;
+    width: 50%; */
+    /* gradient */
+
+    background: hsla(280, 84%, 41%, 1);
+
+    background: linear-gradient(3600deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
+    
+    background: -moz-linear-gradient(360deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
+    
+    background: -webkit-linear-gradient(3600deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8711C1", endColorstr="#2472FC", GradientType=1 );
+    height:100vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+div.container{
+    height: 533px;
+    width: 432px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 8px;
+    margin-left: 20px;
+    padding:40px;
+    box-sizing: border-box;
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgb(246, 245, 245) 0px 5px 15px;
+}
+div.container2{
+    height: 533px;
+    width: 432px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 8px;
+    padding:40px;
+    box-sizing: border-box;
+    margin-left: 40px;
+    /* https://getcssscan.com/css-box-shadow-examples */
+    box-shadow: rgb(246, 245, 245) 0px 5px 15px;
+}
+.logo{
+    width: 48px;
+    height: 48px;
+    margin: 0px 45%;
+   
+
+}
+div.container h2{
+    font-weight: 700;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 24px;
+    
+}
+div.container p.msg{
+    margin-top: 1.5rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div.container form{
+    height: 109px;
+    margin: 20px;
+    display: flex;
+    
+    flex-direction: column;
+    
+    
+    justify-content: space-around;
+}
+div.container form input{
+    outline: none;
+    padding: 8px 12px;
+    height: 32px;
+    border-radius: 5px;
+    border:1px solid blueviolet;
+    font-size: 15px;
+
+}
+
+div.container form input{
+    
+    border-color: blueviolet;
+    
+    
+}
+/* div.container form div{
+    
+} */
+   
+div.pass{
+    display: flex;
+    align-items: center;
+    background-color:rgb(244, 244, 244);
+    outline: none;
+    border-radius: 5px;
+    border:1px solid blueviolet;
+
+
+
+  
+    
+}
+
+div.pass input{
+    flex-grow: 1;
+
+}
+div.pass svg{
+    margin-left: 10px;
+}
+

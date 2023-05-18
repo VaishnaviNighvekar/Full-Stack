@@ -1,0 +1,261 @@
+<html>
+    <head>
+        <style>
+           *{
+            margin: 0;
+            box-sizing: border-box;
+           }
+           div::after{
+            content: "<h1>jhjk</h1>";
+            }
+           body{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+              div{
+                width: 200px;
+                height: 200px;
+                transition-duration:5s;
+                background-color: orange;
+                transition-timing-function: cubic-bezier(0, 2.13, 1,-1.05);
+            }
+            /* div{
+                width: 100vw;
+                height: 90vh;
+                background-color: black;
+            } */
+
+            div.child{
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                background-color: red;
+                animation-name: play;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+            }
+
+            div.child:nth-child(2){
+                background-color: yellow;
+                animation-delay: 1s;
+            }
+
+            
+            div.child:nth-child(3){
+                background-color: blue;
+                animation-delay: 2s;
+            }
+
+            @keyframes play {
+                0%{
+                    transform: translate(0,0);
+                }
+                25%{
+                    transform: translate(200px,100px);
+                }
+                50%{
+                    transform: translate(0,200px);
+                }
+                75%{
+                    transform: translate(200px,300px)
+                }
+                100%{
+                    transform: translate(0,400px);
+                }
+              
+            }
+        </style>
+    </head>
+    <body>
+
+        <!--
+             transition duration is used to show the transition of the 
+             element with the specified duration, 
+            transition-duration will show the transition form 
+            one size to anaother size, one color to another color
+        -->
+
+
+            body{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+              div{
+                width: 200px;
+                height: 200px;
+                transition-duration:5s;
+                background-color: orange;
+                transition-timing-function: cubic-bezier(0, 2.13, 1,-1.05);
+            }
+
+            <!-- trasition timing fucntion is used to change the timming of the transition, for example
+            above cubic-bezier is the value through which the trasition will go half-small-full -->
+
+            div:hover{
+                width:500px;
+                height:500px;
+                transform: sclae(1.5) this can be directly used to manuplate size of the element
+                transition-duration:5s;
+                background-color: yellowgreen;
+                transition-property:all;
+
+                  transition: ease 0s all 1s; can also write in one line (type, end delay, where to apply, start delay)
+            }
+
+            transition-property is used to select some specific or all prrperty that should be involved in the 
+            transition process, example trasition-property: height, then the transition will be shownonly for 
+            height, not for other attributes
+        <div>
+            
+        </div>
+           
+
+        
+
+
+        <!--
+            to apply animation we have to define name of animation and its duration inside the styling element
+            like below
+
+
+            body{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+             div{
+                width: 200px;
+                height: 200px;
+                background-color: yellowgreen;
+                animation-name: play;
+                animation-duration: 1s;
+
+                animation-fill-mode: forward/backward; "this can be used to keep the ending/start state of
+                the animation respectivly"
+
+                animation-iteration-count: 10; "Then the animation will be played 10 times"
+
+                animation-direction: ; "This can be used to change the direction of the animation eg:reverse"
+
+
+
+            }
+
+            @keyframes play {
+                from{
+                    transform:scale(1);
+                }
+                to{
+                    transform:scale(1.5);
+                }
+            }
+
+            to create animation use above method, where @keyframe is necessary, play is animation name,
+            from and to are start state and end state of the animation
+
+            <div>
+            
+        </div>
+
+        -->
+
+       
+        <!--
+
+            another way of adding content in the div using css
+
+                body{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+            }
+
+            div{
+               width: 200px;
+                height: 200px;
+                transition-duration:5s;
+                background-color: orange;
+                transition-timing-function: cubic-bezier(0, 2.13, 1,-1.05);
+            }
+            
+            div::after{  can use before also
+                content: "";
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                background-color: red;
+                transform: translate(50%,50%);
+                position: absolute;
+            }
+
+        -->
+
+
+        <!--
+
+
+            div{
+                width: 100vw;
+                height: 71vh;
+                background-color: black;
+            }
+
+            div.child{
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+                background-color: red;
+                animation-name: play;
+                animation-duration: 1s;
+                animation-iteration-count: 1s;
+            }
+
+            we can use % for animation, i.e. at 0% perform the following transition and the next progressive
+            % perform some other operation or transition
+
+            @keyframes play {
+                0%{
+                    transform: translate(0,0);
+                }
+                25%{
+                    transform: translate(200px,100px);
+                }
+                50%{
+                    transform: translate(0,200px);
+                }
+                75%{
+                    transform: translate(200px,300px)
+                }
+                100%{
+                    transform: translate(0,400px);
+                }
+              
+            }
+
+            <div>
+            <div class="child">
+
+            </div>
+            
+        </div>
+
+
+        -->
+
+
+        <div>
+            <div class="child"></div>
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+    </body>
+</html>

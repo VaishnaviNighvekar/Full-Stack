@@ -1,0 +1,295 @@
+<html>
+    <head>
+        <style>
+           
+        </style>
+    </head>
+    <body>
+        <h1>ToDo list</h1>
+        <h2><input type="text"><button>Add</button></h2>
+        <ul>
+
+        </ul>
+        
+        <script>
+
+            /*
+            html code:
+            <button id="bt1">Click here</button>
+            
+            
+
+            const but=document.getElementById('bt1')
+            function callback(event){ //event is parameter name(can be anything) that is must for an event to be occured
+                console.log('hello')
+            }
+            but.addEventListener('click',callback) // click is an built in event, callback is a function name that 
+            should be executed when we click on button
+            
+            */
+
+
+
+
+            /*
+            
+            
+            const but=document.querySelector('body')
+            but.addEventListener('keydown',(eve)=>{ //keydown event returns and key which is pressed on keyboard
+                console.log(`Key pressed ${eve.key}`)
+            })
+            
+            */
+
+
+
+            /*
+            aim-> to create an event which is used to create dots on the screen whenever the screen is clicked
+
+
+            const but=document.querySelector('body')
+            but.addEventListener('click',(eve)=>{
+                const ele=document.createElement('div')
+                ele.style.position='absolute'
+                ele.style.top=`${eve.clientY}px` // gives y position of the cursor 
+                ele.style.left=`${eve.clientX}px` // gives x position of the cursor
+                ele.style.width='10px'
+                ele.style.height='10px'
+                ele.style.borderRadius='50px'
+                ele.style.backgroundColor='red'
+                but.appendChild(ele)
+
+                })
+
+            similar code for above
+
+
+            const but=document.querySelector('body')
+            but.addEventListener('click',(eve)=>{
+                const ele=document.createElement('div')
+                ele.style = `
+                position: absolute;
+                top: ${eve.clientY}px;
+                left: ${eve.clientX}px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50px;
+                background-color: red;
+                `
+                but.appendChild(ele)
+            })
+
+            
+            */
+
+
+            /*
+            aim-> same aim as above but drag the mouse to draw (get out of console to see the effect)
+
+             const but=document.querySelector('body')
+            but.addEventListener('mousemove',(eve)=>{ // mousemove is event that execute the event function when you move the mouse in the screen(without clicking)
+                const ele=document.createElement('div')
+                ele.style = `
+                position: absolute;
+                top: ${eve.clientY}px;
+                left: ${eve.clientX}px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50px;
+                background-color: red;
+                `
+                but.appendChild(ele)
+            })
+            
+            
+            */
+
+           /*
+           const body=document.querySelector('body')
+            document.addEventListener('scroll',(eve)=>{ //scroll event happens whenever we scroll mouse
+                if(window.scrollY>400){
+                    console.log("hello world")
+                    const ele=document.createElement('h1')
+                    body.appendChild(ele)
+                    ele.innerText="Hello world" //can also use innerHTML
+                    ele.style = `
+                    position: absolute;
+                    top:450px;
+                    left:360px
+                    color:black;
+                    `
+                }
+            })
+           */
+
+
+           /*
+           Aim: is to create a progress bar that increase the bar as we scroll down to the page
+           style:
+              progress{
+                margin: 0px auto;
+                width: 80%;
+                display: block;
+                position: fixed;
+            }
+
+            html:
+            <p>lorem10000</p>
+            <progress max='100' value='0'></progress>
+
+
+
+
+
+            const pro=document.querySelector('progress')
+            const p=document.querySelector('p')       
+            const height=p.clientHeight //used to get a height of element container
+            
+            document.addEventListener('scroll',(event)=>{
+                const  scroll=window.scrollY
+                const per=scroll/(height - window.innerHeight) //innerheight is used to get the screen space of window
+                pro.value=(per*100).toFixed(0)
+
+            })
+           */
+
+
+
+
+
+
+
+
+
+
+           /*
+           const arr=[{
+            text: String,
+            completed: Boolean | false
+            id: String
+           }]*/
+
+
+
+           /*Following is the mini-project Aim-> To make a TODO list application that is capeble of adding items
+           deleting item and editing item, after any changes all list items must be displayed
+
+
+           html code : 
+                <h1>ToDo list</h1>
+                <h2><input type="text"><button>Add</button></h2>
+                <ul>
+
+                </ul>
+                
+            CSS: it is pending, do a very good CSS look at lec 17 end for refrence
+
+            JS code is as follows, add completed/not completed logic as well
+
+           */
+
+
+
+           const todocontainer=document.querySelector('ul')
+           const input=document.querySelector('input')
+           const but=document.querySelector('button')
+           const ul= document.querySelector('ul')
+
+           const todo=[]
+
+          
+
+           but.addEventListener('click',(ele)=>{
+           const add=input.value
+
+            if(add!=null && add!=''){
+                todo.push({
+                    text:add,
+                    completed: false,
+                    id:Date.now(),
+                })
+            
+            const but2=document.createElement('button')
+            const edit=document.createElement('button')
+            const li=document.createElement('li')
+            but2.innerHTML=' Delete'
+            but2.style.margin='10px'
+            edit.innerHTML='Edit'
+            li.innerHTML=add;
+            li.appendChild(but2)
+            li.appendChild(edit)
+            ul.appendChild(li)
+            but2.addEventListener('click',(event)=>{
+                    li.remove()
+                    var ind=null;
+                    todo.forEach((todos)=>{
+                        const id=todos.id
+                        ind=todo.findIndex((todos)=>todos.id===id)
+                    })
+
+                    console.log(ind)
+                    todo.splice(ind-1,1)  
+                    console.log(todo) 
+            })
+                
+
+            edit.addEventListener('click',(event)=>{
+                const editbox=document.createElement('input')
+                const cancel=document.createElement('button')
+                const save=document.createElement('button')
+                editbox.type='text'
+                cancel.innerHTML='Cancel'
+                save.innerHTML='Save'
+                edit.remove()
+                li.appendChild(save)
+                li.appendChild(cancel)
+                li.appendChild(editbox)
+                
+                
+
+                cancel.addEventListener('click',(event)=>{
+                    editbox.remove()
+                    cancel.remove()
+                    save.remove()
+                    li.appendChild(edit)
+                })
+
+
+                save.addEventListener('click',(event)=>{
+                    if(editbox.value!=null && editbox.value!=''){
+                        const newitem=editbox.value
+                        li.innerText=newitem
+                        var ind
+                        todo.forEach((todos)=>{
+                            const id=todos.id
+                            ind=todo.find((todos)=>todos.id===id)
+                        })
+                        ind.text=newitem
+                        console.log(todo)
+                        save.remove()
+                        cancel.remove()
+                        editbox.remove()
+                        li.appendChild(but2)
+                        li.appendChild(edit)
+                    }
+                    else{
+                        window.alert('Cannot add empty item')
+                    }
+                })
+
+            })
+            
+
+                
+
+            }
+            else{
+                window.alert('Cannot add empty item')
+            }
+
+            input.value=''
+           })
+
+        </script>
+    </body>
+</html>

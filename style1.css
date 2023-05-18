@@ -1,0 +1,65 @@
+body{
+    display:flex;
+    align-items:center;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+
+div1{
+    height: 200px;
+    width:200px;
+    border-radius:400px;
+    border-radius:400px 0px 400px 0px;
+    rotate:135deg;
+    background-color: red;
+    /* transition-delay: 0.5s; */
+
+    transition-duration: 1s;
+    
+}
+div1:hover{
+   
+    height: 400px;
+    width:400px;
+   transform: skew(35deg,35deg);
+    border-radius:400px 0px 400px 0px;
+    background-color: lightcoral;
+}
+
+
+div{
+    height: 200px;
+    width:100px;
+    border-radius:400px 400px 0px 0px;
+    background-color: brown;
+    /* transition-delay: 0.5s; */
+    animation-name: play;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    
+    
+
+    /* transition-duration: 1s; */
+}
+/* div:hover{
+   
+    height:500px;
+    width:100px;
+    border-radius:400px 400px 0px 0px;
+    background-color: lightcoral;
+   
+    
+} */
+@keyframes play{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.5);
+        height:300px;
+    }
+}

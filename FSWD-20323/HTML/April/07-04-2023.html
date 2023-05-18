@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <script>
+            /*
+            
+            difference between var and let declarations is as follows
+
+            if(true){
+                var g=10
+                log h=20
+            }
+
+            console.log(g) -> no error 10 printed
+            console.log(h) -> error
+            */
+
+            /*
+            
+            const arr=[1,2,3,4,5]
+            arr.pop()
+            arr.push(5)
+            arr.shift()
+            arr.unshift(1)
+            
+            */
+
+
+            /*
+
+            In the below case both elements of a and b will also be popped, because JS uses call by refernce
+            and hence starting address of both a,b are same hence when we use pop, then it removes the element
+            at the starting address of as which is also starting address of b, hence in both array element will be
+            popped. Similarly when element is pushed in b it will also be pushed in a automatically
+
+            const a=[1,2,3,4,5]
+            const b= a
+            a.pop()
+
+            b.push("element")
+
+            console.log(a)
+            console.log(b)
+
+            */
+
+            /*
+
+            same behaviour as above
+
+            const a={
+                name:"Eren yeager"
+            }
+
+            const b= a
+            b.name="yeager eren"
+            console.log(a)
+            console.log(b)
+
+            */
+
+
+            /*
+
+            arrary have a property/method of foreach loop which take a function name as input and prints the 
+            value,index of the array. Function should 2 parameters, 1st value and 2nd index. Foreach
+            will automaically link the value and index of currect array to the prameter of the functions
+
+
+            const a=[1,2,3,4,5]   
+
+            function iter(Value, currentIndex)
+            {
+                console.log(Value,currentIndex)
+            }
+
+            a.forEach(iter)
+
+            */
+
+
+            /*
+
+            code1:
+            const a=[1,2,3,4,5]   
+
+            function iter(Value, currentIndex)
+            {
+                console.log(Value,currentIndex)
+                return "somthing"
+            }
+
+            const arr = a.forEach(iter)
+            console.log(arr)
+            
+
+            code 2:
+            const ab=[1,2,3,4,5]   
+
+            function iter(Value, currentIndex)
+            {
+                console.log(Value,currentIndex)
+                return "somthing"
+            }
+
+            const ar = ab.map(iter)
+            console.log(ar)
+
+
+            after running both above codes sepratly we can see the difference between map and foreach.
+            both will give same output but map has ability to return some value if defiend in the function
+            and foreach does not even if fucntion is returning some value
+
+            */
+
+
+
+
+
+
+        </script>
+                <h1>Go to browsers console to see js console output</h1>
+    </body>
+</html>
